@@ -1,0 +1,42 @@
+<section class="body-font overflow-hidden">
+  @let bookData = book();
+  @if (bookData) {
+    <div class="container px-5 py-24 mx-auto">
+      <div class="lg:w-4/5 mx-auto flex flex-wrap">
+        <img
+          alt="ecommerce"
+          class="lg:w-1/2 w-full object-cover object-center rounded border"
+          [src]="bookData.imageUrl"
+        />
+        <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+          <h2 class="text-sm title-font tracking-widest">
+            {{ bookData.category }}
+          </h2>
+          <h1 class="text-3xl title-font font-medium mb-1">
+            {{ bookData.title }}
+          </h1>
+          <div class="flex mb-4">
+            <span class="flex items-center">
+              <ui-rating [rating]="bookData.ratingNumber" />
+              <span class="ml-3"> {{ bookData.rating }} Starts </span>
+            </span>
+            <span
+              class="flex ml-3 pl-3 py-2 border-l-2"
+              [innerHTML]="bookData.availability"
+            >
+            </span>
+          </div>
+          <p class="leading-relaxed">
+            {{ bookData.description }}
+          </p>
+
+          <div class="flex mt-4">
+            <span class="title-font font-medium text-2xl">
+              {{ bookData.price }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</section>

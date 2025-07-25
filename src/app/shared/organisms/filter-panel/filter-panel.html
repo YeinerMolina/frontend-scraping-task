@@ -1,0 +1,48 @@
+<article class="flex flex-col gap-4 p-4 rounded-lg shadow-lg">
+  <section>
+    <header class="mb-2">
+      <h2 class="text-xl font-semibold">Categorías</h2>
+    </header>
+    <ui-select
+      [placeholder]="placeholder()"
+      [selectControl]="form.controls.category"
+      [options]="options()"
+    />
+  </section>
+
+  <section class="flex flex-col gap-2">
+    <header class="mb-2">
+      <h2 class="text-xl font-semibold">Rango de Precios</h2>
+    </header>
+    <div class="flex flex-row gap-4 w-full items-center">
+      <ui-input
+        class="flex-1"
+        type="number"
+        placeholder="Mínimo"
+        [inputControl]="form.controls.min"
+      />
+      <span class="text-lg font-medium">-</span>
+      <ui-input
+        class="flex-1"
+        type="number"
+        placeholder="Máximo"
+        [inputControl]="form.controls.max"
+      />
+    </div>
+  </section>
+
+  <div class="flex flex-row w-full gap-4 mt-4">
+    <ui-button
+      class="flex-1"
+      (click)="applyFilters()"
+      type="filled"
+      label="Aplicar"
+    />
+    <ui-button
+      class="flex-1"
+      (click)="resetFilters()"
+      type="outlined"
+      label="Reiniciar"
+    />
+  </div>
+</article>

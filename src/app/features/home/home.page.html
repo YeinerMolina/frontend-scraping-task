@@ -1,0 +1,24 @@
+<article class="flex flex-col gap-2 md:flex-row m-4">
+  <ui-filter
+    (search)="searchBooks()"
+    (searchResult)="getBooks($event)"
+    [options]="state().categories"
+    [filters]="state().filters"
+  />
+  <section
+    class="grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
+  >
+    @for (book of state().books; track book.id) {
+      <a [routerLink]="['/detail', book.id]">
+        <ui-card
+          [imageUrl]="book.imageUrl"
+          [title]="book.title"
+          [price]="book.price"
+          [rating]="book.ratingNumber"
+          [stock]="book.availability"
+          [category]="book.category"
+        />
+      </a>
+    }
+  </section>
+</article>

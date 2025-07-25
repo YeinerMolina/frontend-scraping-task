@@ -1,0 +1,22 @@
+<mat-form-field class="w-full custom-input">
+  @if (placeholder()) {
+    <mat-label>{{ placeholder() }}</mat-label>
+  }
+  <input
+    class="w-full"
+    matInput
+    [type]="type()"
+    [placeholder]="placeholder()"
+    [formControl]="inputControl()"
+  />
+  @if (inputControl().value) {
+    <button
+      matSuffix
+      matIconButton
+      aria-label="Clear"
+      (click)="inputControl().reset()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  }
+</mat-form-field>

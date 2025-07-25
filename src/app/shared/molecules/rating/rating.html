@@ -1,0 +1,11 @@
+<section>
+  @for (i of [1, 2, 3, 4, 5]; track $index; let index = $index) {
+    <mat-icon
+      [ngClass]="{
+        'text-yellow-500!': index < rating(),
+      }"
+    >
+      star
+    </mat-icon>
+  }
+</section>

@@ -1,0 +1,19 @@
+<mat-form-field class="w-full">
+  <mat-label>{{ label() }}</mat-label>
+  <mat-select [placeholder]="placeholder()" [formControl]="selectControl()">
+    @for (item of options(); track item.id) {
+      <mat-option [value]="item.label">{{ item.label }}</mat-option>
+    }
+  </mat-select>
+  @if (selectControl().value) {
+    <button
+      class="pl-2 cursor-pointer"
+      matSuffix
+      matIconButton
+      aria-label="Clear"
+      (click)="handleClear($event)"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  }
+</mat-form-field>
